@@ -1,6 +1,6 @@
 import "./App.css";
 import UserDirectory from "./directory/Directory";
-import UserProfile from "./user/UserProfile";
+import UserProfile from "./user-profile/UserProfile";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {

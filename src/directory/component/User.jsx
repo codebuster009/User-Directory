@@ -1,7 +1,7 @@
 import React from "react";
-import UserDirectory from "../directory/Directory";
+import UserDirectory from "../Directory";
 import { useNavigate } from "react-router-dom";
-import "./user.css"
+import "../css/user.css"
 const User= (props) => {
     const navigate = useNavigate()
     const {user} = props

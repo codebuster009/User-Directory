@@ -1,0 +1,10 @@
+.clock-layout{
+     display: flex;
+    flex-direction:row;
+    border: 2px solid black;
+} 
+.post-layout{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}

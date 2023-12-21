@@ -1,20 +1,21 @@
 .user-details{
     border: 3px solid black;
-    border-radius: 10px;
-    margin: 10px;
+    border-radius: 30px;
+    margin: 60px;
     height: 200px;
+    padding: 5px;
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
-    align-items: center
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: gray; 
+  color:#ffcc00; 
+    font-weight: bold;
 }
-
-.name{
-    border: 3px solid black;
-    flex-grow: 3;
-    margin :20px;
+.email-phone{
+    padding-top: 30px;
 }
-
-.address{
-    border: 3px solid black;
-    flex-grow: 3;
+.username-catch{
+    padding-top: 30px;
 }

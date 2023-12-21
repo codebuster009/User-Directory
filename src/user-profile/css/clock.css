@@ -1,0 +1,36 @@
+*{
+    padding: 0;
+}
+.clock{
+       display: flex;
+       margin-top: 10px;
+       justify-content: space-around;
+}
+.dropdown {
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #1a1a1a; /* Dark border color */
+  border-radius: 5px;
+  background-color: gray; /* Dark background color */
+  color:#ffcc00; /* Yellowish text color */
+  cursor: pointer;
+  font-family: 'Roboto', sans-serif; /* Futuristic font-family */
+  font-weight: bold; /* Bold font */
+  }
+
+  .btn {
+    padding: 10px;
+    font-size: 16px;
+    background-color: gray; 
+  color:#ffcc00; 
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif; /* Futuristic font-family */
+    font-weight: bold; /* Bold font */
+  }
+  
+  .btn:hover {
+    background-color: darkgray; /* Darker blue background color on hover */
+  }
+  

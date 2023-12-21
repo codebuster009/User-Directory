@@ -3,18 +3,9 @@
     border-radius: 10px;
     margin: 10px;
     height: 200px;
+    padding: 5px;
     display: flex;
     justify-content: space-between;
-    align-items: center
-}
-
-.name{
-    border: 3px solid black;
-    flex-grow: 3;
-    margin :20px;
-}
-
-.address{
-    border: 3px solid black;
-    flex-grow: 3;
+    flex-direction: column;
+    align-items: center;
 }

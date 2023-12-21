@@ -1,13 +1,17 @@
 import { useEffect, useRef, useState } from "react";
+import '../css/clock.css'
+import { useNavigate } from "react-router-dom";
+
 
 function Clock() {
+  const navigate = useNavigate();
   const [timezones, setTimezones] = useState([]);
   const [selectedTimeZone, setSelectedTimeZone] = useState("");
   const [time, setTime] = useState(0);
+  const [isTimerRunning, setIsTimerRunning] = useState(false);
   const timeIntervalRef = useRef(null);
 
   function onChangeDropdown(e) {
-    console.log(e.target.value);
     setSelectedTimeZone(e.target.value);
   }
 
@@ -30,54 +34,64 @@ function Clock() {
     clearInterval(timeIntervalRef.current);
     timeIntervalRef.current = null;
     timeIntervalRef.current = setInterval(() => {
-      console.log("here");
       setTime((time) => {
         return new Date(time.setSeconds(time.getSeconds() + 1));
       });
     }, 1000);
+    setIsTimerRunning(true);
   }
 
   useEffect(() => {
     fetch("http://worldtimeapi.org/api/timezone/" + selectedTimeZone)
       .then((response) => response.json())
       .then((json) => {
-        console.log(json.datetime, " before Date");
         const dateTime = new Date(json.datetime);
         setTime(dateTime);
-
         startInterval();
       })
       .catch((error) => console.error(error));
   }, [selectedTimeZone]);
 
   if (!timezones.length) {
-    <div>No countries timezones</div>;
+    return <div>No countries timezones</div>;
   }
 
   function getTime() {
-    const timeString = time.toLocaleString("en-US", {
-      timeZone: selectedTimeZone,
-    });
+    const options = { timeZone: selectedTimeZone, hour12: false };
+    const hours = time.toLocaleString("en-US", { ...options, hour: 'numeric' });
+    const minutes = time.toLocaleString("en-US", { ...options, minute: 'numeric' });
+    const seconds = time.toLocaleString("en-US", { ...options, second: 'numeric' });
 
-    return timeString.split(" ")[1];
+    return (
+      <div className="time" style={{ backgroundColor: '#333', color: '#ffcc00', padding: '10px', display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'row', height: '25px', borderRadius: '5px' }}>
+        <div style={{ fontSize: '2em', fontWeight: 'bold', marginRight: '10px' }}>
+          <span>{hours}</span> :
+        </div>
+        <div style={{ fontSize: '2em', fontWeight: 'bold', marginRight: '10px' }}>
+          <span>{minutes}</span> :
+        </div>
+        <div style={{ fontSize: '2em', fontWeight: 'bold' }}>
+          <span>{seconds}</span>
+        </div>
+      </div>
+    );
   }
 
   function onPauseStart() {
-    if (timeIntervalRef.current) {
+    if (isTimerRunning) {
       clearInterval(timeIntervalRef.current);
       timeIntervalRef.current = null;
     } else {
-      console.log(" restart interval");
       startInterval();
     }
+    setIsTimerRunning(!isTimerRunning);
   }
 
   return (
-    <div>
-      {getTime()}
+    <div className="clock">
+    <button onClick={() => navigate("/")} className="btn">Back</button>
       <label>
-        Country
-        <select value={selectedTimeZone} onChange={onChangeDropdown}>
+        <select className="dropdown" value={selectedTimeZone} onChange={onChangeDropdown}>
           {timezones.map((timezone) => {
             return (
               <option key={timezone} value={timezone}>
@@ -87,10 +101,10 @@ function Clock() {
           })}
         </select>
       </label>
+      {getTime()}
       <br></br>
       <br></br>
-
-      {time && <button onClick={onPauseStart}>Pause/Start</button>}
+      {time && <button className="btn" onClick={onPauseStart}>{isTimerRunning ? 'Pause' : 'Start'}</button>}
     </div>
   );
 }

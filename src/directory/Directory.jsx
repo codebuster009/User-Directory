@@ -1,21 +1,26 @@
 import { useEffect, useState } from "react";
-import User from "../user/User";
+import User from "./component/User";
 
 function prepareUserDirectoryData(userData, postData) {
   let userIdMap = {};
 
   for (let user of userData) {
     user.numberOfPost = 0;
+    user.post = [];
     userIdMap[user.id] = user;
   }
 
   console.log(userIdMap, " userIdMap ");
 
-  for (let { userId } of postData) {
+  for (let { userId,id , title , body } of postData) {
+    const post = { id, title, body };
     console.log(userId, " userId ");
+    console.log(post, "post");
     userIdMap[userId].numberOfPost += 1;
+    userIdMap[userId].post.push(post)
   }
-
+  console.log(userIdMap, "These arent converted in array yet")
+  console.log(Object.values(userIdMap) , "These converted in array")
   return Object.values(userIdMap); // Convert the object to an array
 }
 

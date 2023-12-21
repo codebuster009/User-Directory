@@ -3,26 +3,26 @@
 }
 .clock{
        display: flex;
-       justify-content: space-between;
+       margin-top: 10px;
+       justify-content: space-around;
 }
 .dropdown {
-    padding: 10px;
-    font-size: 16px;
-    border: 2px solid #1a1a1a; /* Dark border color */
-    border-radius: 5px;
-    background-color: #333; /* Dark background color */
-    color: #ffcc00; /* Yellowish text color */
-    margin-left: 10px;
-    cursor: pointer;
-    font-family: 'Roboto', sans-serif; /* Futuristic font-family */
-    font-weight: bold; /* Bold font */
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #1a1a1a; /* Dark border color */
+  border-radius: 5px;
+  background-color: gray; /* Dark background color */
+  color:#ffcc00; /* Yellowish text color */
+  cursor: pointer;
+  font-family: 'Roboto', sans-serif; /* Futuristic font-family */
+  font-weight: bold; /* Bold font */
   }
 
   .btn {
     padding: 10px;
     font-size: 16px;
-    background-color:#333; /* Blue background color */
-    color: #ffcc00; /* White text color */
+    background-color: gray; 
+  color:#ffcc00; 
     border: none;
     border-radius: 5px;
     cursor: pointer;

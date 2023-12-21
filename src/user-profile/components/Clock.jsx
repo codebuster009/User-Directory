@@ -63,12 +63,12 @@ function Clock() {
     const seconds = time.toLocaleString("en-US", { ...options, second: 'numeric' });
 
     return (
-      <div className="time" style={{ backgroundColor: '#333', color: '#ffcc00', padding: '10px', display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'row', height: '25px', borderRadius: '5px' }}>
+      <div className="time" style={{ backgroundColor: 'gray', color: '#ffcc00', padding: '10px', display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'row', height: '25px', borderRadius: '5px' }}>
         <div style={{ fontSize: '2em', fontWeight: 'bold', marginRight: '10px' }}>
-          <span>{hours}</span> :
+          <span>{hours}:</span> 
         </div>
         <div style={{ fontSize: '2em', fontWeight: 'bold', marginRight: '10px' }}>
-          <span>{minutes}</span> :
+          <span>{minutes}:</span>
         </div>
         <div style={{ fontSize: '2em', fontWeight: 'bold' }}>
           <span>{seconds}</span>

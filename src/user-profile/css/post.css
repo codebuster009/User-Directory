@@ -2,16 +2,26 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    margin: 40px;
 }
 .user-post{
     padding: 10px;
     display: flex;
     flex-direction: column;
-    border: 70px solid yellow;
+    justify-content: space-between;
     border-radius: 10px;
     margin-bottom: 20px;
+    background-color: gray; 
+  color:#ffcc00; 
     width:30%;
-    max-height: 300px;
+    height: 200px;
     border: 1px solid #ddd;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-weight: bold;
 }
+
+@media screen and (max-width: 480px) {
+    .user-post {
+      width: 100%;
+    }
+  }

@@ -4,8 +4,8 @@ const Post = (props) => {
     console.log(props.Post.title)
 return (
     <div className="user-post">
-    <div>Title:{props.Post.title} </div>
-    <div>Content:{props.Post.body}</div>
+    <div>{props.Post.title} </div>
+    <div>{props.Post.body}</div>
     </div>
 )
 }

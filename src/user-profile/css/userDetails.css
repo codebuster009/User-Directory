@@ -1,11 +1,21 @@
 .user-details{
     border: 3px solid black;
-    border-radius: 10px;
-    margin: 10px;
+    border-radius: 30px;
+    margin: 60px;
     height: 200px;
     padding: 5px;
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
-    flex-direction: column;
     align-items: center;
+    flex-wrap: wrap;
+    background-color: gray; 
+  color:#ffcc00; 
+    font-weight: bold;
+}
+.email-phone{
+    padding-top: 30px;
+}
+.username-catch{
+    padding-top: 30px;
 }
